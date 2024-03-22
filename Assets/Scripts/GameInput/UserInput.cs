@@ -1,27 +1,28 @@
 using System;
 using UnityEngine;
-namespace GameInput
+
+namespace Galaga.GameInput
 {
     public class UserInput : MonoBehaviour
     {
-        public event Action OnAKeyPressedAction;
-        public event Action OnDKeyPressedAction;
-        public event Action OnSpaceKeyPressedAction;
+        public event Action OnLeftKeyPressed;
+        public event Action OnRightKeyPressed;
+        public event Action OnFireKeyPressed;
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.A))
+            if(Input.GetKey(KeyCode.A))
             {
-                OnAKeyPressedAction?.Invoke();
+                OnLeftKeyPressed?.Invoke();
             }
 
-            if(Input.GetKeyDown(KeyCode.D))
+            if(Input.GetKey(KeyCode.D))
             {
-                OnDKeyPressedAction?.Invoke();
+                OnRightKeyPressed?.Invoke();
             }
 
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                OnSpaceKeyPressedAction?.Invoke();
+                OnFireKeyPressed?.Invoke();
             }
         }
     }
