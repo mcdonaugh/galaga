@@ -8,10 +8,14 @@ namespace Galaga.Data
 
         public float MaxSpeed => _maxSpeed;
         public int MaxHealth => _maxHealth;
+        public int MaxAmmo => _maxAmmo;
         public Sprite ActorSprite => _actorSprite;
-
+        
         [SerializeField] private float _maxSpeed;
         [SerializeField] private int _maxHealth;
+        [SerializeField] private int _maxAmmo;
         [SerializeField] private Sprite _actorSprite; 
+
+
     }
 }
