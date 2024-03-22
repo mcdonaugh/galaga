@@ -10,16 +10,14 @@ namespace Galaga.Controllers
         [SerializeField] private GameObject _playerView;
         [SerializeField] private ActorData _actorData;
         [SerializeField] private ProjectilePoolController _projectilePoolController;
+        [SerializeField] private float _leftBound;
+        [SerializeField] private float _rightBound;
         private Vector3 _movementSpeed;
         private Vector3 _playerLocation;
-        private float _leftBound;
-        private float _rightBound;
 
         private void Awake()
         {
             _movementSpeed = transform.right * _actorData.MaxSpeed * Time.deltaTime;
-            _leftBound = -1.2f;
-            _rightBound = 1.2f;
         }
         
         private void OnEnable()
