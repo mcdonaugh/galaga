@@ -11,10 +11,14 @@ namespace Galaga.Controllers
         [SerializeField] private ActorData _actorData;
         [SerializeField] private ProjectilePoolController _projectilePoolController;
         private Vector3 _movement;
+        private float _leftBound;
+        private float _rightBound;
 
         private void Awake()
         {
             _movement = transform.right * _actorData.MaxSpeed * Time.deltaTime;
+            _leftBound = -1.2f;
+            _rightBound = 1.2f;
         }
         
         private void OnEnable()
@@ -26,11 +30,26 @@ namespace Galaga.Controllers
         
         private void OnLeftKeyActionHandler()
         {
-            _playerView.transform.position -= _movement;
+
+            if (_playerView.transform.position.x >= _leftBound)
+            {   
+                _playerView.transform.position -= _movement;  
+            } 
+            else
+            {
+                return;
+            }
         }
         private void OnRightKeyActionHandler()
         {
-            _playerView.transform.position += _movement;
+            if (_playerView.transform.position.x <= _rightBound)
+            {   
+                _playerView.transform.position += _movement;  
+            } 
+            else
+            {
+                return;
+            }
         }
         private void OnFireKeyActionHandler()
         {
