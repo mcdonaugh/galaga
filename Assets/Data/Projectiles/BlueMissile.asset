@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442849b0754714340b93af30a550c775, type: 3}
   m_Name: BlueMissile
   m_EditorClassIdentifier: 
-  _maxSpeed: 1
+  _maxSpeed: 5
   _maxDamage: 1
-  _projectileSprite: {fileID: -1716170714, guid: 7260452d1fe154fd49837cc7adfdf687, type: 3}
+  _maxDuration: 0.5
+  _sprite: {fileID: 0}

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a475e2846bb141bbbe77523f4a59de1, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  _maxSpeed: 1
-  _maxHealth: 0
+  _maxSpeed: 0.25
+  _maxHealth: 1
   _actorSprite: {fileID: 615264443, guid: 7260452d1fe154fd49837cc7adfdf687, type: 3}
