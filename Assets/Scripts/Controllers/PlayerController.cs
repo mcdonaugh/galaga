@@ -10,7 +10,13 @@ namespace Galaga.Controllers
         [SerializeField] private GameObject _playerView;
         [SerializeField] private ActorData _actorData;
         [SerializeField] private ProjectilePoolController _projectilePoolController;
+        private Vector3 _movement;
 
+        private void Awake()
+        {
+            _movement = transform.right * _actorData.MaxSpeed * Time.deltaTime;
+        }
+        
         private void OnEnable()
         {
             _userInput.OnLeftKeyPressed += OnLeftKeyActionHandler;
@@ -20,11 +26,11 @@ namespace Galaga.Controllers
         
         private void OnLeftKeyActionHandler()
         {
-            Debug.Log($"Move Left");
+            _playerView.transform.position -= _movement;
         }
         private void OnRightKeyActionHandler()
         {
-            Debug.Log($"Move Right");
+            _playerView.transform.position += _movement;
         }
         private void OnFireKeyActionHandler()
         {
