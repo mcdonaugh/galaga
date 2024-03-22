@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Galaga.Controllers
@@ -7,6 +8,7 @@ namespace Galaga.Controllers
         [SerializeField] private ProjectileController _projectileController;
         [SerializeField] private int _maxProjectiles;
         private ProjectileController[] _projectileArray;
+        private int projectileDuration;
 
         private void Awake()
         {
@@ -17,13 +19,12 @@ namespace Galaga.Controllers
                 ProjectileController newProjectile = Instantiate(_projectileController, transform.position, Quaternion.identity);
                 newProjectile.gameObject.SetActive(false);
                 _projectileArray[i] = newProjectile;
+
             }
         }
 
         public ProjectileController GetProjectile()
         {
-            Debug.Log($"Called");
-
             foreach (var projectile in _projectileArray)
             {
                 if(!projectile.gameObject.activeInHierarchy)
@@ -34,5 +35,7 @@ namespace Galaga.Controllers
             }
             return null;
         }
+        
+        
     }
 }

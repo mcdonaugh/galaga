@@ -6,11 +6,13 @@ namespace Galaga.Data
     public class ProjectileData : ScriptableObject
     {
         public float MaxSpeed => _maxSpeed;
-        public float MaxDamage => _maxDamage;
-        public Sprite ProjectileSprite => _projectileSprite;
+        public int MaxDamage => _maxDamage;
+        public float MaxDuration => _maxDamage;
+        public Sprite Sprite => _sprite;
 
         [SerializeField] private float _maxSpeed;
         [SerializeField] private int _maxDamage;
-        [SerializeField] private Sprite _projectileSprite;
+        [SerializeField] private float _maxDuration;
+        [SerializeField] private Sprite _sprite;
     }
 }
