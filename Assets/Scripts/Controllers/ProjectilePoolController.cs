@@ -23,12 +23,13 @@ namespace Galaga.Controllers
             }
         }
 
-        public ProjectileController GetProjectile()
+        public ProjectileController GetProjectile(Vector3 projectileOrigin)
         {
             foreach (var projectile in _projectileArray)
             {
                 if(!projectile.gameObject.activeInHierarchy)
                 {
+                    projectile.gameObject.transform.position = projectileOrigin;
                     projectile.gameObject.SetActive(true);
                     return projectile;
                 }

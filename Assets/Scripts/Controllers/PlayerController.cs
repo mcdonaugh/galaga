@@ -10,13 +10,14 @@ namespace Galaga.Controllers
         [SerializeField] private GameObject _playerView;
         [SerializeField] private ActorData _actorData;
         [SerializeField] private ProjectilePoolController _projectilePoolController;
-        private Vector3 _movement;
+        private Vector3 _movementSpeed;
+        private Vector3 _playerLocation;
         private float _leftBound;
         private float _rightBound;
 
         private void Awake()
         {
-            _movement = transform.right * _actorData.MaxSpeed * Time.deltaTime;
+            _movementSpeed = transform.right * _actorData.MaxSpeed * Time.deltaTime;
             _leftBound = -1.2f;
             _rightBound = 1.2f;
         }
@@ -33,7 +34,7 @@ namespace Galaga.Controllers
 
             if (_playerView.transform.position.x >= _leftBound)
             {   
-                _playerView.transform.position -= _movement;  
+                _playerView.transform.position -= _movementSpeed;  
             } 
             else
             {
@@ -44,7 +45,7 @@ namespace Galaga.Controllers
         {
             if (_playerView.transform.position.x <= _rightBound)
             {   
-                _playerView.transform.position += _movement;  
+                _playerView.transform.position += _movementSpeed;  
             } 
             else
             {
@@ -52,8 +53,9 @@ namespace Galaga.Controllers
             }
         }
         private void OnFireKeyActionHandler()
-        {
-            _projectilePoolController.GetProjectile();
+        {   
+            _playerLocation = _playerView.transform.position;
+            _projectilePoolController.GetProjectile(_playerLocation);
         } 
     }
 }
