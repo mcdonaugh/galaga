@@ -29,31 +29,22 @@ namespace Galaga.Controllers
         
         private void OnLeftKeyActionHandler()
         {
-
             if (_playerView.transform.position.x >= _leftBound)
             {   
                 _playerView.transform.position -= _movementSpeed;  
             } 
-            else
-            {
-                return;
-            }
         }
         private void OnRightKeyActionHandler()
         {
             if (_playerView.transform.position.x <= _rightBound)
             {   
                 _playerView.transform.position += _movementSpeed;  
-            } 
-            else
-            {
-                return;
             }
         }
         private void OnFireKeyActionHandler()
         {   
             _playerLocation = _playerView.transform.position;
-            _projectilePoolController.GetProjectile(_playerLocation);
+            ProjectileController currentProjectile = _projectilePoolController.GetProjectile(_playerLocation);
         } 
     }
 }
